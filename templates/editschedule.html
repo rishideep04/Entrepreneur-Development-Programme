@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action="/update/{{id}}/{{username}}/{{coursename}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="date" class="form-control" name="date" placeholder={{data[1]}}>
+                </div>
+                <div class="form-group">
+                    <input type="time" class="form-control" name="time" placeholder={{data[2]}}>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="loc" placeholder={{data[3]}}>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

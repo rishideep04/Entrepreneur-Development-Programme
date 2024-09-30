@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<section class="user-profile">
+
+   <h1 class="heading">Your profile</h1>
+
+   <div class="info">
+
+      <div class="user">
+         <img src="{{ url_for('static',filename='pic-1.jpg') }}" alt="">
+         <h3>{{username}}</h3>
+         <p>Instructor</p>
+         <a href="/update/{{username}}" class="inline-btn">update profile</a>
+      </div>
+
+      <div class="box-container">
+
+         <div class="box">
+            <div class="flex">
+               <i class="fas fa-graduation-cap"></i>
+               <div>
+                  <span>{{count}}</span>
+                  <p>Courses Enrolled</p>
+               </div>
+            </div>
+            <a href="/courses/{{username}}" class="inline-btn">view Courses</a>
+         </div>
+
+         <div class="box">
+            <div class="flex">
+               <i class="	fas fa-user-graduate"></i>
+               <div>
+                  <span>{{countuser}}</span>
+                  <p>Students Teaching</p>
+               </div>
+            </div>
+            <a href="/playlist/{{username}}" class="inline-btn">view Students</a>
+         </div>
+
+         <div class="box">
+            <div class="flex">
+               <i class="fas fa-comment"></i>
+               <div>
+                  <span>12</span>
+                  <p>Class FeedBack</p>
+               </div>
+            </div>
+            <a href="#" class="inline-btn">view feedback</a>
+         </div>
+
+      </div>
+   </div>
+
+</section>
+
+{% endblock %}

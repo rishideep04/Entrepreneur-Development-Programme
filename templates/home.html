@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+<section class="courses">
+
+   <h1 class="heading">Courses</h1>
+
+   <div class="box-container">
+
+      {% for row in list_courses %}
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+            </div>
+         </div>
+         <div class="thumb">
+            <a href="/aboutcourse/{{row[0]}}/{{username}}"><img src="{{ images[row[0]] }}" alt=""></a>
+         </div>
+         <h3 class="title">{{row[0]}}</h3>
+         <a href="/instenroll/{{username}}/{{ row[0]}}" class="inline-btn">Enroll</a>
+      </div>
+      {% endfor %}
+
+
+</section>
+
+{% endblock %}

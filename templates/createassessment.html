@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<form action="/createassess/{{username}}/{{coursename}}" method="POST"  enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="text" class="form-control" name="asstype" placeholder="Assessment Type">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="pm" placeholder="Pass Marks">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="tm" placeholder="Total Marks">
+    </div>
+
+    <button class="btn btn-primary btn-block">
+        Create Assessment
+    </button>
+</form>
+
+{% endblock %}

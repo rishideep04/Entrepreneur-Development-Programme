@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Options</title>
+    <style>
+        body {
+            background-color: #444444;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgb(255, 255, 255);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: antiquewhite;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div onclick="instructor()" class="card">
+            <a href="/instructor">INSTRUCTOR</a>
+        </div>
+        <div onclick="participant()" class="card">
+            <a href="/participant">PARTICIPANT</a>
+        </div>
+    </div>
+</body>
+
+</html>
