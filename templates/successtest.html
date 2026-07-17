@@ -1,0 +1,49 @@
+{% extends "layoutuser.html" %}
+{% block styles %}
+  <style>
+    /* Add this CSS to your existing stylesheet or create a new one */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    outline: none;
+}
+
+button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #2672af;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+  </style>
+{% endblock %}
+
+{% block body %}
+  <header>
+    <h1>TEST SUBMITTED SUCCESSFULLY</h1>
+  </header>
+  <button><a href="/takeassis/{{username}}">Return Back</a></button>
+{% endblock %}

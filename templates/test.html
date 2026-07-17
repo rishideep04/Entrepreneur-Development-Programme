@@ -1,0 +1,109 @@
+{% extends "layoutuser.html" %}
+{% block head %}
+    {{ super() }}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 20px;
+        }
+
+        h2, h1 {
+            color: #1a237e; /* Dark blue color for headings */
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+<h2>WELCOME TO {{assessmenttopic}} ASSESSMENT</h2>
+<h1>THE ASSESSMENT TYPE IS {{assessmenttype}}</h1>
+<h1>BEST OF LUCK</h1>
+<div class="container">
+    <form id="assessmentForm" method="post" action="/evaltest/{{username}}/{{assessmenttype}}/{{assessmenttopic}}/{{theid}}" enctype="multipart/form-data">
+        {% for qset in questions %}
+        <div class="question">
+            <p>Question {{ loop.index }}: {{ qset[0] }}</p>
+            <input type="radio" id="option_a_{{ loop.index }}" name="question_{{ loop.index }}" value="a">
+            <label for="option_a_{{ loop.index }}">{{ qset[1] }}</label><br>
+            <input type="radio" id="option_b_{{ loop.index }}" name="question_{{ loop.index }}" value="b">
+            <label for="option_b_{{ loop.index }}">{{ qset[2] }}</label><br>
+            <input type="radio" id="option_c_{{ loop.index }}" name="question_{{ loop.index }}" value="c">
+            <label for="option_c_{{ loop.index }}">{{ qset[3] }}</label><br>
+        </div>
+        <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+document.getElementById('assessmentForm').addEventListener('submit', function(event) {
+    var questions = document.getElementsByClassName('question');
+    for (var i = 0; i < questions.length; i++) {
+        var options = questions[i].getElementsByTagName('input');
+        var optionSelected = false;
+        for (var j = 0; j < options.length; j++) {
+            if (options[j].checked) {
+                optionSelected = true;
+                break;
+            }
+        }
+        if (!optionSelected) {
+            alert('Please answer all questions before submitting.');
+            event.preventDefault();
+            return;
+        }
+    }
+});
+</script>
+
+{% endblock %}

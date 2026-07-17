@@ -1,4 +1,82 @@
 {% extends "layout.html" %}
+{% block head %}
+<style>
+   .teachers {
+  margin: 20px;
+}
+
+.heading {
+  color: #333;
+  font-size: 2em; /* Maintain the existing font size */
+}
+
+.search-tutor {
+  margin-bottom: 20px;
+}
+
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.box p {
+  margin: 8px 0;
+}
+
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.tutor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style Create Assessment section */
+h2 {
+  margin-top: 20px;
+  color: #333;
+  font-size: 1.5em; /* Maintain the existing font size */
+}
+
+form[action^="/createassessment"] {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style submit button */
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #1c87c9;
+}
+</style>
+{% endblock %}
 {% block body %}
 
 
@@ -23,35 +101,30 @@
          </div>
          <p>Total Marks : <span>{{row[3]}}</span></p>
          <p>Pass Marks : <span>{{row[2]}}</span></p>
-         <a href="/teacherprofile" class="inline-btn">View Students</a>
       </div>
       {% endfor %}
       <div>
          <h2>Create Assessment</h2>
          <form action="/createassessment/{{username}}" method="post">
             <p>Select Course:</p>
-            <input type="radio" id="DatabaseFundamentals" name="Course" value="DatabaseFundamentals">
-            <label for="DatabaseFundamentals">DatabaseFundamentals</label><br>
-            <input type="radio" id="PythonProgramming" name="Course" value="PythonProgramming">
-            <label for="PythonProgramming">PythonProgramming</label><br>
-            <input type="radio" id="DataScienceEssentials" name="Course" value="DataScienceEssentials">
-            <label for="DataScienceEssentials">DataScienceEssentials</label><br>
-            <input type="radio" id="WebDesign" name="Course" value="WebDesign">
-            <label for="WebDesign">WebDesign</label><br>
-            <input type="radio" id="MobileAppDevelopment" name="Course" value="MobileAppDevelopment">
-            <label for="MobileAppDevelopment">MobileAppDevelopment</label><br><br>
+            <input type="radio" id="Database Fundamentals" name="Course" value="Database Fundamentals">
+            <label for="Database Fundamentals">Database Fundamentals</label><br>
+            <input type="radio" id="Python Programming" name="Course" value="Python Programming">
+            <label for="Python Programming">Python Programming</label><br>
+            <input type="radio" id="Data Science Essentials" name="Course" value="Data Science Essentials">
+            <label for="Data Science Essentials">Data Science Essentials</label><br>
+            <input type="radio" id="Web Design" name="Course" value="Web Design">
+            <label for="Web Design">Web Design</label><br>
+            <input type="radio" id="Mobile App Development" name="Course" value="Mobile App Development">
+            <label for="Mobile App Development">Mobile App Development</label><br><br>
 
             <input type="submit" value="Submit">
          </form>
 
       </div>
 
-      
+
 
    </div>
 
 </section>
-
-
-
-{% endblock %}
